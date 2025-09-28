@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessões de Treino</title>
+    <link rel="stylesheet" href="sessoes.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Minhas Sessões de Treino</h1>
+            <p>Gerencie suas sessões de treino</p>
+        </header>
+
+        <div class="content">
+        
+            <div class="form-section">
+                <h2>Nova Sessão de Treino</h2>
+                <form id="form-sessao">
+                    <div class="form-group">
+                        <label for="data-sessao">Data da Sessão</label>
+                        <input 
+                            type="date" 
+                            id="data-sessao" 
+                            name="data-sessao" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duracao">Duração da Sessão (minutos)</label>
+                        <input 
+                            type="number" 
+                            id="duracao" 
+                            name="duracao" 
+                            min="1" 
+                            max="480"
+                            placeholder="Ex: 60"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo-treino">Tipo de Treino</label>
+                        <select id="tipo-treino" name="tipo-treino">
+                            <option value="">Selecione o tipo</option>
+                            <option value="musculacao">Musculação</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="funcional">Treino Funcional</option>
+                            <option value="yoga">Yoga/Pilates</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacoes">Observações</label>
+                        <textarea 
+                            id="observacoes" 
+                            name="observacoes" 
+                            placeholder="Anotações sobre o treino..."
+                            rows="3"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        Adicionar Sessão
+                    </button>
+                </form>
+            </div>
+
+            <div class="sessions-section">
+                <h2>Sessões Registradas</h2>
+                <div class="filters">
+                    <input 
+                        type="month" 
+                        id="filtro-mes" 
+                        class="filtro-mes"
+                    >
+                    <button id="btn-limpar-filtro" class="btn-secondary">
+                        Limpar Filtro
+                    </button>
+                </div>
+
+                <div id="lista-sessoes" class="sessions-list">
+                    
+                    <div class="empty-state">
+                        <p>Nenhuma sessão de treino registrada ainda.</p>
+                        <p>Adicione sua primeira sessão usando o formulário ao lado.</p>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>Total de Sessões</h3>
+                        <span id="total-sessoes">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Tempo Total</h3>
+                        <span id="tempo-total">0 min</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Duração Média</h3>
+                        <span id="duracao-media">0 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sessoes.js"></script>
+</body>
+</html>
